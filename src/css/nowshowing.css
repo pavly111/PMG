@@ -260,7 +260,25 @@ button.next {
   .meta-item {
     font-size: 0.7rem;
   }
+  .movie-description {
+    font-size: 0.9rem;
+  }
+
   .list-item {
     height: 180px;
+  }
+  .default-text h1{
+    font-size: 2rem;
+    margin-left: 0;
+  }
+  .default-text h2{
+    font-size: 2rem;
+  }
+  .btn-book,
+  .btn-trailer{
+    scale: 0.8;
+    font-size: 1rem;
+    padding: 10px 15px;
+    margin-top: -20px;
   }
 }
