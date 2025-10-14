@@ -1,0 +1,99 @@
+.booking-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  color: var(--text-cream);
+  min-height: calc(100vh - 150px); /* Adjust based on nav/footer height */
+}
+
+.booking-page h1 {
+  font-family: "Cinzel", serif;
+  color: var(--gold-accent);
+  margin-bottom: 20px;
+}
+
+.seat-selection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px 0;
+  perspective: 1000px;
+}
+
+.screen {
+  width: 60%;
+  height: 20px;
+  background: #fff;
+  margin-bottom: 40px;
+  box-shadow: 0 3px 10px rgba(255, 255, 255, 0.7);
+  transform: rotateX(-45deg);
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.seat-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.seat-row {
+  display: flex;
+  gap: 10px;
+}
+
+.seat {
+  width: 30px;
+  height: 30px;
+  background-color: #444;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.seat.available:hover {
+  background-color: #666;
+}
+
+.seat.selected {
+  background-color: var(--gold-accent);
+}
+
+.seat.booked {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.legend {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legend-item .seat {
+  cursor: default;
+  width: 20px;
+  height: 20px;
+}
+
+.booking-summary {
+  margin-top: 30px;
+  text-align: center;
+  font-size: 1.2rem;
+}
+
+.booking-summary p {
+  margin-bottom: 15px;
+}
+
+.booking-summary .btn-book {
+  margin-top: 10px;
+}

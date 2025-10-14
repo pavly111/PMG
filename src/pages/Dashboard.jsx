@@ -95,7 +95,7 @@ function Dashboard() {
 
       <main id="home">
         <h1>🎬 Welcome to PMG Cinema</h1>
-        <p>
+        <p className="text-light">
           Explore the world of movies, from Arabic legends to global
           blockbusters.
         </p>

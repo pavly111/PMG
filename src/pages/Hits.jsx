@@ -83,7 +83,6 @@ function Hits() {
               sort_by: "popularity.desc",
               include_adult: false,
               include_video: false,
-
             },
           }
         );
@@ -100,23 +99,32 @@ function Hits() {
     fetchMovies();
   }, []);
 
-  const itemWidth = 192;
+  const [itemWidth, setItemWidth] = useState(192); // Default width
   const [visibleItems, setVisibleItems] = useState(0);
   const [sliderIndex, setSliderIndex] = useState(0);
 
   useEffect(() => {
-    const calculateVisibleItems = () => {
-      if (sliderWrapperRef.current) {
+    const calculateWidths = () => {
+      if (
+        sliderWrapperRef.current &&
+        sliderWrapperRef.current.firstElementChild
+      ) {
+        const sliderItem = sliderWrapperRef.current.firstElementChild;
+        const sliderItemStyle = window.getComputedStyle(sliderItem);
+        const newWidth =
+          sliderItem.offsetWidth + parseFloat(sliderItemStyle.marginRight);
+        setItemWidth(newWidth);
+
         const containerWidth =
           sliderWrapperRef.current.parentElement.offsetWidth;
         setVisibleItems(Math.floor(containerWidth / itemWidth));
       }
     };
 
-    calculateVisibleItems();
-    window.addEventListener("resize", calculateVisibleItems);
-    return () => window.removeEventListener("resize", calculateVisibleItems);
-  });
+    calculateWidths();
+    window.addEventListener("resize", calculateWidths);
+    return () => window.removeEventListener("resize", calculateWidths);
+  }, [movies, itemWidth]); // Recalculate when movies or itemWidth changes
 
   useEffect(() => {
     if (sliderWrapperRef.current) {

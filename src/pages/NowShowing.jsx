@@ -4,6 +4,7 @@ import "../css/nowshowing.css";
 import logosrc from "../assets/logo.png";
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 
 function MovieCard({ id, poster, onMouseEnter }) {
   return (
@@ -16,6 +17,8 @@ function MovieCard({ id, poster, onMouseEnter }) {
 }
 
 function MovieDetails({ movie }) {
+  const navigate = useNavigate();
+
   if (!movie) {
     return (
       <>
@@ -28,6 +31,10 @@ function MovieDetails({ movie }) {
       </>
     );
   }
+
+  const handleBookNow = () => {
+    navigate("/book", { state: { movie } });
+  };
 
   return (
     <>
@@ -50,7 +57,9 @@ function MovieDetails({ movie }) {
               {movie.overview}
             </p>
             <div className="movie-actions">
-              <button className="btn-book">Book Now</button>
+              <button className="btn-book" onClick={handleBookNow}>
+                Book Now
+              </button>
               <button className="btn-trailer">Watch Trailer</button>
             </div>
           </div>
@@ -62,7 +71,7 @@ function MovieDetails({ movie }) {
 
 function NowShowing() {
   const [movies, setMovies] = useState([]);
-  const [currentIndex, setCurrentIndex] = useState(-1); 
+  const [currentIndex, setCurrentIndex] = useState(-1);
   const sliderWrapperRef = useRef(null);
 
   useEffect(() => {
@@ -83,7 +92,6 @@ function NowShowing() {
               language: "en-US",
               include_adult: false,
               include_video: false,
-
             },
           }
         );
@@ -100,23 +108,32 @@ function NowShowing() {
     fetchMovies();
   }, []);
 
-  const itemWidth = 192;
+  const [itemWidth, setItemWidth] = useState(196); // Default width
   const [visibleItems, setVisibleItems] = useState(0);
   const [sliderIndex, setSliderIndex] = useState(0);
 
   useEffect(() => {
-    const calculateVisibleItems = () => {
-      if (sliderWrapperRef.current) {
+    const calculateWidths = () => {
+      if (
+        sliderWrapperRef.current &&
+        sliderWrapperRef.current.firstElementChild
+      ) {
+        const sliderItem = sliderWrapperRef.current.firstElementChild;
+        const sliderItemStyle = window.getComputedStyle(sliderItem);
+        const newWidth =
+          sliderItem.offsetWidth + parseFloat(sliderItemStyle.marginRight);
+        setItemWidth(newWidth);
+
         const containerWidth =
           sliderWrapperRef.current.parentElement.offsetWidth;
         setVisibleItems(Math.floor(containerWidth / itemWidth));
       }
     };
 
-    calculateVisibleItems();
-    window.addEventListener("resize", calculateVisibleItems);
-    return () => window.removeEventListener("resize", calculateVisibleItems);
-  },);
+    calculateWidths();
+    window.addEventListener("resize", calculateWidths);
+    return () => window.removeEventListener("resize", calculateWidths);
+  }, [movies, itemWidth]); // Recalculate when movies or itemWidth changes
 
   useEffect(() => {
     if (sliderWrapperRef.current) {
