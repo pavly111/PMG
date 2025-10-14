@@ -188,7 +188,7 @@
   align-items: center;
   justify-content: center;
   width: clamp(120px, 12vw, 180px);
-  height: clamp(180px, 50vh, 250px);
+  height: 250px;
   border-radius: 10px;
   background: rgba(0, 0, 0, 0.7);
   border: 2px solid transparent;
@@ -259,5 +259,8 @@ button.next {
   }
   .meta-item {
     font-size: 0.7rem;
+  }
+  .list-item {
+    height: 180px;
   }
 }

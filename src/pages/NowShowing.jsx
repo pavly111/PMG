@@ -127,6 +127,7 @@ function NowShowing() {
         const containerWidth =
           sliderWrapperRef.current.parentElement.offsetWidth;
         setVisibleItems(Math.floor(containerWidth / itemWidth));
+        console.log(visibleItems);
       }
     };
 
