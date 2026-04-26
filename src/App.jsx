@@ -1,5 +1,5 @@
 import "./css/App.css";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HashRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login_page from "./pages/login_page.jsx";
 import {
   Dashboard,
@@ -16,7 +16,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path="/login" element={<Login_page />} />
@@ -31,7 +31,7 @@ function App() {
         </Route>
         <Route path="*" element={<Navigate to="/login" replace />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 
