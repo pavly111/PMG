@@ -281,4 +281,48 @@ button.next {
     padding: 10px 15px;
     margin-top: -20px;
   }
+  .movie-container {
+    height: auto;
+    padding: 15px;
+  }
+  .default-text {
+    width: 100%;
+    padding: 15px;
+  }
+  .movie-details {
+    padding: 15px;
+  }
+  .movie-poster {
+    height: 320px;
+  }
+  .movie-actions {
+    flex-wrap: wrap;
+  }
+  .list-contanier {
+    padding-left: 10px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .default-text h1 {
+    font-size: 1.5rem;
+  }
+  .default-text h2 {
+    font-size: 1.5rem;
+  }
+  .movie-info h2 {
+    font-size: 1.5rem;
+  }
+  .movie-poster {
+    height: 240px;
+  }
+  .meta-item {
+    padding: 5px 10px;
+  }
+  button.prev,
+  button.next {
+    width: 32px;
+    height: 32px;
+    font-size: 18px;
+  }
 }

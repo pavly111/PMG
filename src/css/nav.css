@@ -262,11 +262,27 @@ nav ul li:hover .clapper {
 
 @media screen and (max-width: 768px) {
   .search-box{
-    width: 260px !important;
+    width: 100% !important;
+    max-width: 260px !important;
     margin-top: 8px;
     margin-bottom: 16px;
+  }
+  .search-input {
+    width: 100% !important;
   }
   .btton{
     margin-left: 4px;
 } 
+}
+
+@media screen and (max-width: 480px) {
+  .navbar {
+    padding: 10px 15px !important;
+  }
+  .logo-container {
+    transform: translateX(0) !important;
+  }
+  .search-box {
+    max-width: 100% !important;
+  }
 }

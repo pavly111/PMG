@@ -51,6 +51,7 @@
 
 .about-logo {
   width: 150px;
+  max-width: 40vw;
   height: auto;
   margin: 0; 
   transform: scale(1);
@@ -59,6 +60,21 @@
 
 .popcorn-container:hover .about-logo {
   transform: scale(2);
+}
+
+@media screen and (max-width: 480px) {
+  .popcorn-container:hover .about-logo {
+    transform: scale(1.4);
+  }
+
+  .popcorn-container:hover .floating:nth-child(1) { transform: translate(-50%, -50%) rotate(0deg) translate(100px) rotate(-0deg); }
+  .popcorn-container:hover .floating:nth-child(2) { transform: translate(-50%, -50%) rotate(45deg) translate(100px) rotate(-45deg); }
+  .popcorn-container:hover .floating:nth-child(3) { transform: translate(-50%, -50%) rotate(90deg) translate(100px) rotate(-90deg); }
+  .popcorn-container:hover .floating:nth-child(4) { transform: translate(-50%, -50%) rotate(135deg) translate(100px) rotate(-135deg); }
+  .popcorn-container:hover .floating:nth-child(5) { transform: translate(-50%, -50%) rotate(180deg) translate(100px) rotate(-180deg); }
+  .popcorn-container:hover .floating:nth-child(6) { transform: translate(-50%, -50%) rotate(225deg) translate(100px) rotate(-225deg); }
+  .popcorn-container:hover .floating:nth-child(7) { transform: translate(-50%, -50%) rotate(270deg) translate(100px) rotate(-270deg); }
+  .popcorn-container:hover .floating:nth-child(8) { transform: translate(-50%, -50%) rotate(315deg) translate(100px) rotate(-315deg); }
 }
 
 .icon-container {

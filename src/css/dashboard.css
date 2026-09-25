@@ -954,6 +954,42 @@ main + h1 {
   }
 }
 
+@media (max-width: 480px) {
+  .cards .item {
+    width: 130px;
+    height: 175px;
+  }
+
+  main h1 {
+    font-size: 1.6em;
+  }
+
+  .arrow {
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+
+  .seat {
+    width: 22px;
+    height: 22px;
+    font-size: 0.65rem;
+  }
+
+  .seat-row {
+    gap: 4px;
+  }
+
+  .modal-header {
+    padding: 15px;
+  }
+
+  .movie-poster {
+    width: 60px;
+    height: 90px;
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;
