@@ -44,7 +44,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  flex: 1;
+  min-height: 60vh;
   position: relative;
   z-index: 1;
 }
